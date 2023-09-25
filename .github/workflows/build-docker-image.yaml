@@ -1,53 +1,53 @@
-# name: Docker Image CI
-
-# on:
-#   push:
-#     branches: [ main ]
-
-# jobs:
-#   build:
-
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - uses: actions/checkout@v2
-
-#     - name: Login to DockerHub
-#       uses: docker/login-action@v1
-#       with:
-#         username: ${{ secrets.MAhmadUzair}}
-#         password: ${{ secrets.xYf$L*mjK?.&p2N}}
-
-#     - name: Build and push Docker image
-#       uses: docker/build-push-action@v2
-#       with:
-#         context: .
-#         push: true
-#         tags: mahmaduzair/django-app:latest
-
-
-name: Build and Push Docker Image
+name: Docker Image CI
 
 on:
   push:
-    branches:
-      - main  # Adjust this branch name as needed
+    branches: [ main ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.MAhmadUzair}}
+        password: ${{ secrets.xYf$L*mjK?.&p2N}}
 
-      - name: Build and tag the Docker image
-        run: |
-          docker build -t your-docker-username/your-image-name .
-          docker tag your-docker-username/your-image-name your-docker-username/your-image-name:latest
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: mahmaduzair/django-app:latest
 
-      - name: Push the Docker image to Docker Hub
-        run: docker push mahmaduzair/django-app:latest
+
+# name: Build and Push Docker Image
+
+# on:
+#   push:
+#     branches:
+#       - main  # Adjust this branch name as needed
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Login to Docker Hub
+#         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+#       - name: Build and tag the Docker image
+#         run: |
+#           docker build -t your-docker-username/your-image-name .
+#           docker tag your-docker-username/your-image-name your-docker-username/your-image-name:latest
+
+#       - name: Push the Docker image to Docker Hub
+#         run: docker push mahmaduzair/django-app:latest
