@@ -1,5 +1,7 @@
 # Use an official Python runtime as a parent image
-FROM python:3.x  # Replace '3.x' with the desired Python version
+FROM python:3.8  # Replace '3.x' with the desired Python version
+
+FROM image:tag
 
 # Set environment variables for running in a non-interactive mode
 ENV PYTHONUNBUFFERED 1
