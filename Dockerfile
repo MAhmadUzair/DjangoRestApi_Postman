@@ -1,25 +1,14 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8  # Replace '3.x' with the desired Python version
+FROM python:3.8
 
-FROM image:tag
-
-# Set environment variables for running in a non-interactive mode
-ENV PYTHONUNBUFFERED 1
-
-# Set the working directory in the container to /app
+# Set the working directory within the container
 WORKDIR /app
 
-# Copy the requirements file into the container at /app
-COPY requirements.txt /app/
+# Copy the current directory contents into the container at /app
+COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Copy the rest of the application code into the container
-COPY . /app/
-
-# Expose a port to the host (replace 8000 with the port your Django app runs on)
-EXPOSE 8000
-
-# Define the command to run your application (replace 'yourappname' with your app's name)
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Define the command to run your application
+CMD ["python", "app.py"]
