@@ -28,7 +28,7 @@ jobs:
     
     - name: Run Docker container
       run: |
-        docker run -d p
+        docker run -d -p 8000:8000 mahmaduzair/django-app:latest
 
 
 
