@@ -10,7 +10,5 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Expose the port that UVicorn will listen on
-EXPOSE 8080
-
-CMD ["uvicorn", ".app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Define the command to run your application
+CMD ["python", "app.py"]
