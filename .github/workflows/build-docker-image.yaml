@@ -24,6 +24,12 @@ jobs:
         context: .
         push: true
         tags: mahmaduzair/django-app:latest
+    
+    
+    - name: Run Docker container
+      run: |
+        docker run -d -p
+
 
 
 # name: Build and Push Docker Image
